@@ -15,6 +15,9 @@ app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(cookieParser());
 
+mongoose.connect('mongodb://localhost/db');
+mongoose.Promise = global.Promise;
+
 const Produto = require('models/produtos');
 
 app.use('/', indexRouter);
