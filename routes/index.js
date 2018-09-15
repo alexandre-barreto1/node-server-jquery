@@ -3,7 +3,12 @@ var router = express.Router();
 const mongoose = require('mongoose');
 const Produtos = require('./../models/produtos');
 /* GET home page. */
-router.get('/', function (req, res, next) {
+res.sendFile('public/index.html', { root: __dirname });
+router.get('/', (req, res, next) => {
+    res.sendFile('./public/index.html');
+
+});
+router.get('/file', function (req, res, next) {
     Produtos.find({}, function (err,produto) {
         if(err){
             console.log(err,'erro get')
